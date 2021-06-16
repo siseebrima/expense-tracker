@@ -4,7 +4,7 @@ import "./ExpenseForm.css";
 const ExpenseForm = (props) => {
   const [inputData, setInputData] = useState({
     title: "",
-    amount: 0,
+    amount: "",
     date: "",
   });
 
@@ -35,6 +35,9 @@ const ExpenseForm = (props) => {
       amount: "",
       date: "",
     });
+  };
+  const cancelHandler = (event) => {
+    event.preventDefault();
   };
   return (
     <form onSubmit={submitHandler}>
@@ -75,6 +78,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={cancelHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
